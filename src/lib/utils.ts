@@ -36,17 +36,16 @@ export function formatPrice(
   }).format(numericPrice);
 }
 
-// WIP: Change client ID for production
 export const getStripeOAuthLink = (
   accountType: "agency" | "subaccount",
   state: string
 ) => {
-  return `https://connect.stripe.com/oauth/v2/authorize?response_type=code&client_id=${process.env.NEXT_PUBLIC_STRIPE_CLIENT_ID_TEST}&scope=read_write&redirect_uri=${process.env.NEXT_PUBLIC_URL}${accountType}&state=${state}`;
+  return `https://connect.stripe.com/oauth/v2/authorize?response_type=code&client_id=${process.env.NEXT_PUBLIC_STRIPE_CLIENT_ID}&scope=read_write&redirect_uri=${process.env.NEXT_PUBLIC_URL}${accountType}&state=${state}`;
 };
 
 export function constructMetadata({
-  title = "Plura - run your agency",
-  description = "Plura - run your agency in just aone place",
+  title = "Plura",
+  description = "Plura - run your agency in just one place",
   image = "/assets/preview.png",
   icons = "/assets/plura-logo.svg",
   noIndex = false,
@@ -74,10 +73,9 @@ export function constructMetadata({
       title,
       description,
       images: [image],
-      creator: "@denvudd",
+      creator: "@dyaipayan",
     },
     icons,
-    metadataBase: new URL("https://digital-hippo-production-denvudd.up.railway.app"),
     ...(noIndex && {
       robots: {
         index: false,

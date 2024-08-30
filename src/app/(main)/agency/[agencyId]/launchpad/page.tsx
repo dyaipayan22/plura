@@ -18,7 +18,7 @@ import {
 import { constructMetadata, getStripeOAuthLink, logger } from "@/lib/utils";
 import { stripe } from "@/lib/stripe";
 
-interface LaunchPagPageageProps {
+interface LaunchPageProps {
   params: {
     agencyId: string | undefined;
   };
@@ -27,7 +27,7 @@ interface LaunchPagPageageProps {
   };
 }
 
-const LaunchPagPageage: React.FC<LaunchPagPageageProps> = async ({
+const LaunchPage: React.FC<LaunchPageProps> = async ({
   params,
   searchParams,
 }) => {
@@ -161,7 +161,7 @@ const LaunchPagPageage: React.FC<LaunchPagPageageProps> = async ({
   );
 };
 
-export default LaunchPagPageage;
+export default LaunchPage;
 
 export const metadata = constructMetadata({
   title: "Launchpad - Plura",

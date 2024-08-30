@@ -6,7 +6,7 @@ generator client {
 }
 
 datasource db {
-  provider     = "mysql"
+  provider     = "postgresql"
   url          = env("DATABASE_URL")
   relationMode = "prisma"
 }
@@ -78,7 +78,7 @@ model User {
   updatedAt DateTime @updatedAt
 
   name      String
-  avatarUrl String  @db.Text
+  avatarUrl String  
   email     String  @unique
   role      Role    @default(SUBACCOUNT_USER)
   agencyId  String?
@@ -99,8 +99,8 @@ model Agency {
   connectAccountId String? @default("")
   customerId       String  @default("")
   name             String
-  agencyLogo       String  @db.Text
-  companyEmail     String  @db.Text
+  agencyLogo       String  
+  companyEmail     String  
   companyPhone     String
   whiteLabel       Boolean @default(true)
   address          String
@@ -126,8 +126,8 @@ model SubAccount {
 
   connectAccountId String? @default("")
   name             String
-  subAccountLogo   String  @db.Text
-  companyEmail     String  @db.Text
+  subAccountLogo   String  
+  companyEmail     String  
   companyPhone     String
   goal             Int     @default(5)
   address          String
@@ -355,7 +355,7 @@ model Funnel {
   description   String?
   published     Boolean @default(false)
   subDomainName String? @unique
-  favicon       String? @db.Text
+  favicon       String? 
   subAccountId  String
   liveProducts  String? @default("[]")
 
@@ -374,7 +374,7 @@ model ClassName {
   name       String
   color      String
   funnelId   String
-  customData String? @db.LongText
+  customData String? 
 
   funnel Funnel @relation(fields: [funnelId], references: [id], onDelete: Cascade)
 
@@ -389,9 +389,9 @@ model FunnelPage {
   name         String
   pathName     String  @default("")
   visits       Int     @default(0)
-  content      String? @db.LongText
+  content      String? 
   order        Int
-  previewImage String? @db.Text
+  previewImage String? 
   funnelId     String
 
   funnel Funnel @relation(fields: [funnelId], references: [id], onDelete: Cascade)
