@@ -1,5 +1,6 @@
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import { ModalProvider } from "@/components/providers/ModalProvider";
+import Script from "next/script";
 
 import { Inter } from "next/font/google";
 import { cn } from "@/lib/utils";
@@ -22,6 +23,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="h-full" suppressHydrationWarning>
+      <head>
+        <Script
+          defer
+          data-domain="plura-nine.vercel.app"
+          src="https://www.vivlytics.com/tracking-script.js"
+        />
+      </head>
       <body
         className={cn(
           "relative h-full font-sans antialiased min-h-screen",
